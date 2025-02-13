@@ -1,0 +1,150 @@
+pipeline {
+    options {
+      gitLabConnection('gitlab_conn_devops02')
+    }
+    agent any
+    environment {
+        DOCKER_REGISTRY = 'docker.io'
+        DOCKER_USER = 'digitechdevops2'
+        DOCKER_IMAGE = 'rppj-backend'
+        DOCKER_VERSION=sh (returnStdout: true, script: 'echo v$(./git-buildnumber)-dev').trim()
+        DOCKER_COMPOSE_FILE = 'docker-compose-dev.yaml'
+        APPLICATION_NAME = 'rppj-backend'
+        HELM_NAME = 'rppj-backend'
+        HELM_NS = 'rppj-dev'
+        HELM_ENV = 'development'
+        HELM_VALUES = 'values-rppj-backend-development.yaml'
+        HELM_REPO = 'oci://registry-1.docker.io/solusik8s'
+        HELM_CHART = 'dgto'
+        HELM_VERSION = '1.0.1'
+        K8S_CLUSTER = 'dgto'
+        HELM_SECRET = 'env-rppj-backend-development-secret'
+    }
+    stages {
+        stage('Initiate') {
+            post {
+                failure {
+                    updateGitlabCommitStatus name: 'Initiate', state: 'failed'
+                }
+                success {
+                    updateGitlabCommitStatus name: 'Initiate', state: 'success'
+                }
+                aborted {
+                    updateGitlabCommitStatus name: 'Initiate', state: 'canceled'
+                }
+            }
+               
+            when{
+                anyOf {
+                    expression{
+                        return GIT_BRANCH =~ /development/
+                    }
+                }
+            }
+            steps {
+                sh 'echo "path : `pwd`"'
+                // sh 'cp -vf .env.development .env'
+                withCredentials([file(credentialsId: "${HELM_SECRET}", variable: 'HELM_SECRET_FILE')]) {
+                    sh '''
+                        cp -vf "${HELM_SECRET_FILE}" .env
+                    '''
+                } 
+            }
+        }
+        stage('Build Image') {
+            post {
+                failure {
+                    updateGitlabCommitStatus name: 'Build Image', state: 'failed'
+                }
+                success {
+                    updateGitlabCommitStatus name: 'Build Image', state: 'success'
+                }
+                aborted {
+                    updateGitlabCommitStatus name: 'Build Image', state: 'canceled'
+                }
+            }
+            when{
+                anyOf {
+                    expression{
+                        return GIT_BRANCH =~ /development/
+                    }
+                }
+            }
+            steps {
+                updateGitlabCommitStatus name: 'Build Image', state: 'running'
+                sh "echo build image : ${DOCKER_REGISTRY}/${DOCKER_USER}/${DOCKER_IMAGE}:${DOCKER_VERSION}"
+                sh 'docker compose -f ${DOCKER_COMPOSE_FILE} build'
+            }
+        }
+        stage('Push Image') {
+            environment {
+                DOCKER_CONFIG = "${WORKSPACE}/.docker"
+            }
+            post {
+                failure {
+                    updateGitlabCommitStatus name: 'Push Image', state: 'failed'
+                }
+                success {
+                    updateGitlabCommitStatus name: 'Push Image', state: 'success'
+                }
+                aborted {
+                    updateGitlabCommitStatus name: 'Push Image', state: 'canceled'
+                }
+            }
+            when{
+                anyOf {
+                    expression{
+                        return GIT_BRANCH =~ /development/
+                    }
+                }
+            }
+            steps {
+                sh 'printenv|grep DOCKER'
+                withCredentials([usernamePassword(credentialsId: 'registry-dockerio-digitechdevops2-readwrite', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh 'docker login -u ${USERNAME} -p ${PASSWORD} ${DOCKER_REGISTRY}'
+                    sh 'echo Push Image to ${DOCKER_REGISTRY}/${DOCKER_USER}/${DOCKER_IMAGE}:${DOCKER_VERSION}'
+                    sh 'docker compose -f ${DOCKER_COMPOSE_FILE} push'
+                }
+            }
+        }
+        stage('DeployToDev') {
+            when{
+                anyOf {
+                    expression{
+                        return GIT_BRANCH =~ /development/
+                    }
+                }
+            }
+            steps {
+                withKubeConfig([credentialsId: 'smdev-k8s-jenkins', serverUrl: 'https://smdev-rke.bgs-dev.my.id/k8s/clusters/local']) {
+                    sh '''
+                        touch helm-history.${HELM_NAME}.txt
+                        helm -n ${HELM_NS} ls -f '^${HELM_NAME}' | grep ${HELM_NAME} && helm -n ${HELM_NS} history ${HELM_NAME} > helm-history.${HELM_NAME}.txt || echo 'no history'
+                    '''
+                    archiveArtifacts artifacts: "helm-history.${HELM_NAME}.txt", fingerprint: true
+                    withCredentials([file(credentialsId: "${HELM_SECRET}", variable: 'HELM_SECRET_FILE')]) {
+                        sh '''
+                            echo create secrete ${HELM_NAME}-secret-${DOCKER_VERSION}
+                            kubectl --namespace ${HELM_NS} create secret generic ${HELM_NAME}-secret-${DOCKER_VERSION} --from-env-file="${HELM_SECRET_FILE}" --save-config --dry-run=client -o yaml | kubectl apply -f -
+                        '''
+                    }
+                    sh '''
+                        echo running helm - HELM_NAME=${HELM_NAME} 
+                        echo image.repository=${DOCKER_REGISTRY}/${DOCKER_USER}/${DOCKER_IMAGE}
+                        echo image.tag=${DOCKER_VERSION}
+                        helm upgrade --install ${HELM_NAME} ${HELM_REPO}/${HELM_CHART} \
+                            --set nameOverride=${HELM_NAME} \
+                            --set fullnameOverride=${HELM_NAME} \
+                            --version ${HELM_VERSION} \
+                            --set image.repository=${DOCKER_REGISTRY}/${DOCKER_USER}/${DOCKER_IMAGE} \
+                            --set image.tag=${DOCKER_VERSION} \
+                            --namespace ${HELM_NS} \
+                            --set envFrom[0].secretRef.name=${HELM_NAME}-secret-${DOCKER_VERSION} \
+                            --values ${HELM_VALUES} \
+                    '''
+                }
+            }
+
+        }
+    }
+}

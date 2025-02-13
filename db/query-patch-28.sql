@@ -1,0 +1,2 @@
+ALTER TABLE queue_lane
+ADD COLUMN allow_unit VARCHAR(20) NULL;

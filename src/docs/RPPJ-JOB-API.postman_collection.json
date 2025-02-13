@@ -1,0 +1,1516 @@
+{
+	"info": {
+		"_postman_id": "36069c01-9928-42eb-bafd-cf2128864f2b",
+		"name": "RPPJ-JOB-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2536755",
+		"_collection_link": "https://winter-meteor-594150.postman.co/workspace/test~acfae218-a8ca-4990-a2b0-3d211baa9d34/collection/2536755-36069c01-9928-42eb-bafd-cf2128864f2b?action=share&source=collection_link&creator=2536755"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "api/users/list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const encodedData=pm.response.text();\r",
+									"const decodedData=atob(encodedData);\r",
+									"console.log (\"decodedData :\",decodedData);\r",
+									"pm.environment.set(\"decodedResponse\",decodedData);\r",
+									"\r",
+									" \r",
+									" \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n                \r\n    \"assignment_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0=\",\r\n    \r\n    \"lane_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0\",\r\n    \"truck_id\":\"VTJGc2RHVmtYMSthUlc2TDNoL2pCNkY1TGN4emMyT0VqcEtjTTlZQ2JnRT0=\",\r\n    \"user_id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rppj_api_url}}/api/users/list?page&limit",
+							"host": [
+								"{{rppj_api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"list"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "rppj",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": null
+								},
+								{
+									"key": "limit",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const encodedData=pm.response.text();\r",
+									"const decodedData=atob(encodedData);\r",
+									"console.log (\"decodedData :\",decodedData);\r",
+									"pm.environment.set(\"decodedResponse\",decodedData);\r",
+									"\r",
+									" \r",
+									" \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n                \r\n    \"assignment_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0=\",\r\n    \r\n    \"lane_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0\",\r\n    \"truck_id\":\"VTJGc2RHVmtYMSthUlc2TDNoL2pCNkY1TGN4emMyT0VqcEtjTTlZQ2JnRT0=\",\r\n    \"user_id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rppj_api_url}}/api/users/menu",
+							"host": [
+								"{{rppj_api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"menu"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "rppj",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const encodedData=pm.response.text();\r",
+									"const decodedData=atob(encodedData);\r",
+									"console.log (\"decodedData :\",decodedData);\r",
+									"pm.environment.set(\"decodedResponse\",decodedData);\r",
+									"\r",
+									" \r",
+									" \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n                \r\n    \"email\":\"test6@yahoo.com\",\r\n    \"name\":\"User Test\",\r\n    \"username\":\"USERTEST6\",\r\n    \"password\":\"Test@#$%yu812\",\r\n    \"created_by\": \"admin@yahoo.com\",\r\n    \"avatar\":\"https://images.search.yahoo.com/images/view;_ylt=AwrjZf135WhnRLAsdJGJzbkF;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzlhZGI1MDVjMThkYmEyYTNiNjg0MjQwODViMDAxNTE3BGdwb3MDMQRpdANiaW5n?back=https%3A%2F%2Fimages.search.yahoo.com%2Fsearch%2Fimages%3Fp%3Dprofile%26type%3DE210US91215G0%26fr%3Dmcafee%26fr2%3Dpiv-web%26tab%3Dorganic%26ri%3D1&w=1200&h=800&imgurl=a.storyblok.com%2Ff%2F191576%2F1200x800%2F215e59568f%2Fround_profil_picture_after_.webp&rurl=https%3A%2F%2Fwww.photoroom.com%2Ftools%2Fround-profile-picture&size=35KB&p=profile&oid=9adb505c18dba2a3b68424085b001517&fr2=piv-web&fr=mcafee&tt=Free+Round+Profile+Picture+Maker+%7C+Photoroom&b=0&ni=21&no=1&ts=&tab=organic&sigr=D_4MahFbGEyf&sigb=5ytryNS40.bI&sigi=6GjibVn1qPEm&sigt=9.feIzDg_eRT&.crumb=7ugHmC1ZCQ/&fr=mcafee&fr2=piv-web&type=E210US91215G0\",\r\n    \"roles\":[\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"add\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"edit\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"delete\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"read\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"export\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rppj_api_url}}/api/users/create",
+							"host": [
+								"{{rppj_api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"create"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "rppj",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const encodedData=pm.response.text();\r",
+									"const decodedData=atob(encodedData);\r",
+									"console.log (\"decodedData :\",decodedData);\r",
+									"pm.environment.set(\"decodedResponse\",decodedData);\r",
+									"\r",
+									" \r",
+									" \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n                \r\n    \"email\":\"rppj@minergosystems.com\",\r\n    \"name\":\"User Test\",\r\n    \"username\":\"RPPJ\",\r\n    \"updated_by\": \"test@yahoo.com\",\r\n    \"avatar\":\"\",\r\n    \"roles\":[\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"add\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"edit\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"delete\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"read\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"export\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rppj_api_url}}/api/users/update/VTJGc2RHVmtYMS81ZWZLUzU4Z2l4VlYwS001c0hzdWVRU2hPZDh1SkorWT0=",
+							"host": [
+								"{{rppj_api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"update",
+								"VTJGc2RHVmtYMS81ZWZLUzU4Z2l4VlYwS001c0hzdWVRU2hPZDh1SkorWT0="
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "rppj",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/show",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const encodedData=pm.response.text();\r",
+									"const decodedData=atob(encodedData);\r",
+									"console.log (\"decodedData :\",decodedData);\r",
+									"pm.environment.set(\"decodedResponse\",decodedData);\r",
+									"\r",
+									" \r",
+									" \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n                \r\n    \"email\":\"rppj@minergosystems.com\",\r\n    \"name\":\"User Test\",\r\n    \"username\":\"RPPJ\",\r\n    \"updated_by\": \"test@yahoo.com\",\r\n    \"roles\":[\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"add\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"edit\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"delete\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"read\"},\r\n        {\"menu_id\":\"mo-dash\",\"role_id\":\"export\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rppj_api_url}}/api/users/show/VTJGc2RHVmtYMS9TMDNXVUZhaVZuSXQrM3NmWjRkeWRHWEQ0cmRkeVVtaz0=",
+							"host": [
+								"{{rppj_api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"show",
+								"VTJGc2RHVmtYMS9TMDNXVUZhaVZuSXQrM3NmWjRkeWRHWEQ0cmRkeVVtaz0="
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "rppj",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const encodedData=pm.response.text();\r",
+									"const decodedData=atob(encodedData);\r",
+									"console.log (\"decodedData :\",decodedData);\r",
+									"pm.environment.set(\"decodedResponse\",decodedData);\r",
+									"\r",
+									" \r",
+									" \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n                \r\n    \"assignment_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0=\",\r\n    \r\n    \"lane_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0\",\r\n    \"truck_id\":\"VTJGc2RHVmtYMSthUlc2TDNoL2pCNkY1TGN4emMyT0VqcEtjTTlZQ2JnRT0=\",\r\n    \"user_id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rppj_api_url}}/api/users/role",
+							"host": [
+								"{{rppj_api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"role"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "rppj",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/change-passw",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const encodedData=pm.response.text();\r",
+									"const decodedData=atob(encodedData);\r",
+									"console.log (\"decodedData :\",decodedData);\r",
+									"pm.environment.set(\"decodedResponse\",decodedData);\r",
+									"\r",
+									" \r",
+									" \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n                \r\n    \"password\":\"PaB0n1@#$Rytu\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rppj_api_url}}/api/users/change-passw/VTJGc2RHVmtYMTkrVTF2OXBXZEZVdGlMeGs0bGJLTS9abk4xVHJoRituaz0=",
+							"host": [
+								"{{rppj_api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"change-passw",
+								"VTJGc2RHVmtYMTkrVTF2OXBXZEZVdGlMeGs0bGJLTS9abk4xVHJoRituaz0="
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "rppj",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logs",
+			"item": [
+				{
+					"name": "api/logs/list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"truck_id\":\"VTJGc2RHVmtYMS91alVaL3hyM3VzbGd1b0JodnNjNWovZzU4RUN3aSt4RT0=\",\r\n \"status\":\"\",\r\n \"start_date\":\"2024-12-13\",\r\n \"end_date\":\"2024-12-13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{rppj_api_url}}/api/logs/list",
+							"host": [
+								"{{rppj_api_url}}"
+							],
+							"path": [
+								"api",
+								"logs",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "job/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY3JlYXRlZF9hdCI6bnVsbCwidXBkYXRlZF9hdCI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9ieSI6bnVsbCwidXBkYXRlZF9ieSI6bnVsbCwiZGVsZXRlZF9ieSI6bnVsbCwiZW1haWwiOiJycHBqQG1pbmVyZ29zeXN0ZW1zLmNvbSIsIm5hbWUiOiJSUFBKIiwidXNlcm5hbWUiOm51bGwsImF2YXRhciI6bnVsbCwiaWF0IjoxNzMyMjgzNzgxLCJleHAiOjE3MzIzNzAxODF9.mIJkGANJ2ghC2oN_s6ioTfUw4NBKTrw71_G6wvMX1LU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/job/list",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"job",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/simpang-bayah/location",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY3JlYXRlZF9hdCI6bnVsbCwidXBkYXRlZF9hdCI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9ieSI6bnVsbCwidXBkYXRlZF9ieSI6bnVsbCwiZGVsZXRlZF9ieSI6bnVsbCwiZW1haWwiOiJycHBqQG1pbmVyZ29zeXN0ZW1zLmNvbSIsIm5hbWUiOiJSUFBKIiwidXNlcm5hbWUiOm51bGwsImF2YXRhciI6bnVsbCwiaWF0IjoxNzMyMjM3NjIyLCJleHAiOjE3MzIzMjQwMjJ9.6rXl357PTWiR_9max7gOarFQnktgHzyxaVSICwWmw8Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "UGaW5kNkjhA782GBNS1616KbswQYa5372bsdexVNT16",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "type_identity",
+							"value": "KTP",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "driver_name",
+							"value": "John Doe",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "is_active",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "typeofdriving_license",
+							"value": "SIM-B1",
+							"type": "text"
+						},
+						{
+							"key": "created_by",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "updated_by",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "expired_date_license",
+							"value": "2025-12-31",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "started_work",
+							"value": "2023-01-01",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/simpang-bayah/location",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"simpang-bayah",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/cp-queue/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY3JlYXRlZF9hdCI6bnVsbCwidXBkYXRlZF9hdCI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9ieSI6bnVsbCwidXBkYXRlZF9ieSI6bnVsbCwiZGVsZXRlZF9ieSI6bnVsbCwiZW1haWwiOiJycHBqQG1pbmVyZ29zeXN0ZW1zLmNvbSIsIm5hbWUiOiJSUFBKIiwidXNlcm5hbWUiOm51bGwsImF2YXRhciI6bnVsbCwiaWF0IjoxNzMyMjgzNzgxLCJleHAiOjE3MzIzNzAxODF9.mIJkGANJ2ghC2oN_s6ioTfUw4NBKTrw71_G6wvMX1LU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "UGaW5kNkjhA782GBNS1616KbswQYa5372bsdexVNT16",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3000/api/cp-queue/list",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cp-queue",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/lane/unit-on-cp",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY3JlYXRlZF9hdCI6bnVsbCwidXBkYXRlZF9hdCI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9ieSI6bnVsbCwidXBkYXRlZF9ieSI6bnVsbCwiZGVsZXRlZF9ieSI6bnVsbCwiZW1haWwiOiJycHBqQG1pbmVyZ29zeXN0ZW1zLmNvbSIsIm5hbWUiOiJSUFBKIiwidXNlcm5hbWUiOm51bGwsImF2YXRhciI6bnVsbCwiaWF0IjoxNzMyMjgzNzgxLCJleHAiOjE3MzIzNzAxODF9.mIJkGANJ2ghC2oN_s6ioTfUw4NBKTrw71_G6wvMX1LU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "UGaW5kNkjhA782GBNS1616KbswQYa5372bsdexVNT16",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3000/api/cp-queue/list/all",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cp-queue",
+						"list",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/cp-queue/list/false",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY3JlYXRlZF9hdCI6bnVsbCwidXBkYXRlZF9hdCI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9ieSI6bnVsbCwidXBkYXRlZF9ieSI6bnVsbCwiZGVsZXRlZF9ieSI6bnVsbCwiZW1haWwiOiJycHBqQG1pbmVyZ29zeXN0ZW1zLmNvbSIsIm5hbWUiOiJSUFBKIiwidXNlcm5hbWUiOm51bGwsImF2YXRhciI6bnVsbCwiaWF0IjoxNzMyMjgzNzgxLCJleHAiOjE3MzIzNzAxODF9.mIJkGANJ2ghC2oN_s6ioTfUw4NBKTrw71_G6wvMX1LU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "UGaW5kNkjhA782GBNS1616KbswQYa5372bsdexVNT16",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/cp-queue/list/false",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"cp-queue",
+						"list",
+						"false"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/cp-queue/list/true",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY3JlYXRlZF9hdCI6bnVsbCwidXBkYXRlZF9hdCI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9ieSI6bnVsbCwidXBkYXRlZF9ieSI6bnVsbCwiZGVsZXRlZF9ieSI6bnVsbCwiZW1haWwiOiJycHBqQG1pbmVyZ29zeXN0ZW1zLmNvbSIsIm5hbWUiOiJSUFBKIiwidXNlcm5hbWUiOm51bGwsImF2YXRhciI6bnVsbCwiaWF0IjoxNzMyMjgzNzgxLCJleHAiOjE3MzIzNzAxODF9.mIJkGANJ2ghC2oN_s6ioTfUw4NBKTrw71_G6wvMX1LU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "UGaW5kNkjhA782GBNS1616KbswQYa5372bsdexVNT16",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/cp-queue/list/true",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"cp-queue",
+						"list",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/lane/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "UGaW5kNkjhA782GBNS1616KbswQYa5372bsdexVNT16",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "type_identity",
+							"value": "KTP",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "driver_name",
+							"value": "John Doe",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "is_active",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "typeofdriving_license",
+							"value": "SIM-B1",
+							"type": "text"
+						},
+						{
+							"key": "created_by",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "updated_by",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "expired_date_license",
+							"value": "2025-12-31",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "started_work",
+							"value": "2023-01-01",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/lane/list",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"lane",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "job/edit",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Data yang akan diencode\r",
+							"const rawData =\"VTJGc2RHVmtYMS9rYWI1dS9wWTdMQkltWkEyOXV1cUhTbkJNUHRBRVBYRT0=\";\r",
+							"\r",
+							"// Encode menggunakan encodeURIComponent\r",
+							"const encodedData = encodeURIComponent(rawData);\r",
+							"//const encodedData = rawData;\r",
+							"// Simpan hasil encoding ke variable\r",
+							"pm.environment.set(\"encodedData\", encodedData);\r",
+							"\r",
+							"// Debug di console log\r",
+							"console.log(\"Encoded Data:\", encodedData);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiY3JlYXRlZF9hdCI6bnVsbCwidXBkYXRlZF9hdCI6bnVsbCwiZGVsZXRlZF9hdCI6bnVsbCwiY3JlYXRlZF9ieSI6bnVsbCwidXBkYXRlZF9ieSI6bnVsbCwiZGVsZXRlZF9ieSI6bnVsbCwiZW1haWwiOiJycHBqQG1pbmVyZ29zeXN0ZW1zLmNvbSIsIm5hbWUiOiJSUFBKIiwidXNlcm5hbWUiOm51bGwsImF2YXRhciI6bnVsbCwiaWF0IjoxNzMyMjgzNzgxLCJleHAiOjE3MzIzNzAxODF9.mIJkGANJ2ghC2oN_s6ioTfUw4NBKTrw71_G6wvMX1LU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "UGaW5kNkjhA782GBNS1616KbswQYa5372bsdexVNT16",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cron_name\":\"ApiGetVehicles\",\r\n    \"schedule\":\"*/1 * * * * *\",\r\n    \"is_active\":false,\r\n    \"changes_by\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/job/edit/{{encodedData}}",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"job",
+						"edit",
+						"{{encodedData}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "rppj@minergosystems.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "H5aP$9pN5KI7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/auth/login",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-getToken",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OTAwLCJtZW1iZXJJZCI6MiwiaWF0IjoxNzMyMjgzNzQ1LCJleHAiOjE3MzIzNzAxNDV9.2PMarjAnYpY9HxHAmcIaubZIegQtb8xOQH6iGS7TXQo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "rppj@minergosystems.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "H5aP$9pN5KI7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/auth/get-token",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"get-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api-gettoken famous",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"rppj@minergosystems.com\",\r\n     \"password\": \"H5aP$9pN5KI7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://famous.borneo-indobara.com/api/v2/auth/login",
+					"protocol": "https",
+					"host": [
+						"famous",
+						"borneo-indobara",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rulesofsimpang_bayah-create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane_id\": \"VTJGc2RHVmtYMTlnQ2JHNkVjRzNhQmxkWC9QZGVCanV2WWtOS3poSHY5TT0=\",\r\n  \"truck_type\":\"DDT\",\r\n  \"is_deleted\":false,\r\n   \"created_by\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/rulesofsimpangbayahlane/create",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"rulesofsimpangbayahlane",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rulesofsimpang_bayah-list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane_id\": 1,\r\n  \"truck_type\":\"DDT\",\r\n  \"is_deleted\":false,\r\n   \"created_by\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/rulesofsimpangbayahlane/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rulesofsimpangbayahlane",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "rulesofsimpang_bayah-get-lane_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lane_id\": 1,\r\n  \"truck_type\":\"DDT\",\r\n  \"is_deleted\":false,\r\n   \"created_by\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/rulesofsimpangbayahlane/list/lane/VTJGc2RHVmtYMStDaU5kNnpsWWIxRjQ0QVlwNmU2ZEtMWitxcTF0di9yND0=",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"rulesofsimpangbayahlane",
+						"list",
+						"lane",
+						"VTJGc2RHVmtYMStDaU5kNnpsWWIxRjQ0QVlwNmU2ZEtMWitxcTF0di9yND0="
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/management-truck/list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const encodedData=pm.response.text();\r",
+							"const decodedData=atob(encodedData);\r",
+							"console.log (\"decodedData :\",decodedData);\r",
+							"pm.environment.set(\"decodedResponse\",decodedData);\r",
+							"\r",
+							" \r",
+							" \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/management-truck/list?page=1&limit=10",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"management-truck",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "search",
+							"value": "WS BBB",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/management-truck/list/detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const encodedData=pm.response.text();\r",
+							"const decodedData=atob(encodedData);\r",
+							"console.log (\"decodedData :\",decodedData);\r",
+							"pm.environment.set(\"decodedResponse\",decodedData);\r",
+							"\r",
+							" \r",
+							" \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/management-truck/detail/id?q=VTJGc2RHVmtYMStEMno0WFJlRTF0NGZMSlBhYWpTNDltMjc3V21tT1kwbz0=",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"management-truck",
+						"detail",
+						"id"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "VTJGc2RHVmtYMStEMno0WFJlRTF0NGZMSlBhYWpTNDltMjc3V21tT1kwbz0="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/demo/run",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const encodedData=pm.response.text();\r",
+							"const decodedData=atob(encodedData);\r",
+							"console.log (\"decodedData :\",decodedData);\r",
+							"pm.environment.set(\"decodedResponse\",decodedData);\r",
+							"\r",
+							" \r",
+							" \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/management-truck/detail/id?q=VTJGc2RHVmtYMStEMno0WFJlRTF0NGZMSlBhYWpTNDltMjc3V21tT1kwbz0=",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"management-truck",
+						"detail",
+						"id"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "VTJGc2RHVmtYMStEMno0WFJlRTF0NGZMSlBhYWpTNDltMjc3V21tT1kwbz0="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/cp-queue/save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const encodedData=pm.response.text();\r",
+							"const decodedData=atob(encodedData);\r",
+							"console.log (\"decodedData :\",decodedData);\r",
+							"pm.environment.set(\"decodedResponse\",decodedData);\r",
+							"\r",
+							" \r",
+							" \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                \r\n    \"assignment_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0=\",\r\n    \r\n    \"lane_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0\",\r\n    \"truck_id\":\"VTJGc2RHVmtYMSthUlc2TDNoL2pCNkY1TGN4emMyT0VqcEtjTTlZQ2JnRT0=\",\r\n    \"user_id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/cp-aqueue/save",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"cp-aqueue",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/lane/unit-on-cp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const encodedData=pm.response.text();\r",
+							"const decodedData=atob(encodedData);\r",
+							"console.log (\"decodedData :\",decodedData);\r",
+							"pm.environment.set(\"decodedResponse\",decodedData);\r",
+							"\r",
+							" \r",
+							" \r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                \r\n    \"assignment_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0=\",\r\n    \r\n    \"lane_id\":\"VTJGc2RHVmtYMS8rcGhkZ3RvZjMzVUFTdWM3L3huM0w4c2pidldpcGEzVT0\",\r\n    \"truck_id\":\"VTJGc2RHVmtYMSthUlc2TDNoL2pCNkY1TGN4emMyT0VqcEtjTTlZQ2JnRT0=\",\r\n    \"user_id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{rppj_api_url}}/api/cp-aqueue/save",
+					"host": [
+						"{{rppj_api_url}}"
+					],
+					"path": [
+						"api",
+						"cp-aqueue",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

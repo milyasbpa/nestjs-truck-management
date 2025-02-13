@@ -1,0 +1,148 @@
+# Default values for myindo-template.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+nameOverride: "rppj-backend"
+fullnameOverride: "rppj-backend"
+
+image:
+  repository: registry.gitlab.com/bluesoft3/sinarmas-backend
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "v1.0.0"
+
+kind: Deployment
+
+secretData:
+  enabled: false
+  data:
+    []
+    # - filename: namafile
+    #   filepath: pathfile
+
+env:
+  - name: APP_NAME
+    value: "rppj-backend"
+
+envFrom: []
+# - secretRef:
+#     name: nama-secret
+
+hostAliases: []
+# - ip: "192.168.48.3"
+#   hostnames:
+#   - "cloud-config-server.solusi-k8s.com"
+
+imagePullSecrets:
+  - name: registry-dockerio-digitechdevops2-read
+
+podLabels: {}
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext:
+  {}
+  # fsGroup: 2000
+
+securityContext:
+  {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 3000
+
+livenessProbe:
+  tcpSocket:
+    port: 3000
+  # httpGet:
+  #   path: /healthcheck
+  #   port: http
+  initialDelaySeconds: 30
+  periodSeconds: 10
+readinessProbe:
+  tcpSocket:
+    port: 3000
+  # httpGet:
+  #   path: /healthcheck
+  #   port: http
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/client-body-timeout: "120"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # cert-manager.io/cluster-issuer: letsencrypt-sahir-web-id
+  hosts:
+    - host: dev-rppj.ugems.id
+      paths:
+        - path: /api
+          pathType: Prefix
+          backend:
+            service:
+              name: rppj-backend
+              port:
+                number: 3000
+  tls:
+    - hosts:
+        - dev-rppj.ugems.id
+      secretName: ugems.id-cert-tls
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+    {}
+    # memory: 20Gi
+  #   cpu: 100m
+  requests:
+    {}
+    # memory: 12Gi
+  #   cpu: 100m
+
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 400Mi
+
+nodeSelector: {
+  kubernetes.io/hostname: dev-backendsvr-01
+}
+
+tolerations: []
+
+affinity: {}
+
+volumeMounts:
+  - name: storage-files
+#    mountPath: "/rppj-uploads"
+    mountPath: "/usr/src/app/logs"
+
+extraVolumes:
+  - name: storage-files
+    persistentVolumeClaim:
+      claimName: rppj-file-pvc

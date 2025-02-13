@@ -1,0 +1,1 @@
+ALTER TABLE public.geofence_service_logs ADD geofence_target_value varchar NULL;

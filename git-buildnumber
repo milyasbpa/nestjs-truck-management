@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# define parameters
+REV="$1"
+START_YEAR="$2"
+
+# if no revision supplied, then grab it
+if [ -z "$REV" ]; then
+  REV='HEAD'
+fi
+
+# assume 2014 if no start year supplied
+if [ -z "$START_YEAR" ]; then
+  START_YEAR=2014
+fi
+
+# define platform agnostic way to generate the date
+# since bsd/linux are different
+function format_date {
+  TS="$1" # seconds since unix epoch
+  FMT="$2" # output format
+
+  # BSD
+  if [[ "$(uname)" == "Darwin" || "$(uname)" == "FreeBSD" ]]; then
+    PARAMS="-r ${TS}"
+  else # linux or windows (cygwin/mingw)
+    PARAMS="--date=@${TS}"
+  fi
+
+  echo $(date -u $PARAMS "+$FMT")
+}
+
+# grab the epoch seconds
+EPOCH_GIT=$(git show -s --format='%at' $1)
+
+# determine time period
+SINCE=$(format_date "${EPOCH_GIT}" '%Y-%m-%d 00:00:00 +0000')
+UNTIL=$(format_date "${EPOCH_GIT}" '%Y-%m-%d %H:%M:%S +0000')
+
+# set up build variables
+BUILD_YEAR=$(($(format_date "${EPOCH_GIT}" '%Y') - $START_YEAR))
+BUILD_MONTH=$(format_date "${EPOCH_GIT}" '%m'|sed -e 's/^0//')
+BUILD_DAY=$(format_date "${EPOCH_GIT}" '%d'|sed -e 's/^0//')
+
+# calculate the build count
+BUILD_COUNT=$(git log -s --format='%h' --since="${SINCE}" --until="${UNTIL}"|wc -l|sed -e 's/[^0-9]//g')
+
+# format output
+BUILD="${BUILD_YEAR}.${BUILD_MONTH}.${BUILD_DAY}.${BUILD_COUNT}"
+
+echo "${BUILD}"

@@ -1,0 +1,6 @@
+version: '3.8'
+
+services:
+  rppj-backend:
+    image: "${DOCKER_REGISTRY:-docker.io}/${DOCKER_USER:-digitechdevops2}/${DOCKER_IMAGE:-rppj-backend}:${DOCKER_VERSION:-v1.0.0}"
+    build: .
